@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giftos - Gift Shop</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .map {
+            width: 100%;
+            height: 400px; 
+            background: url('13.jpg') no-repeat center center;
+            background-size: cover;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+        }
+
+        .close-btn {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>GIFTOS</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#shop">SHOP</a></li>
+                <li><a href="#why-us">WHY US</a></li>
+                <li><a href="#contact-us">CONTACT US</a></li>
+                <i class="fas fa-shopping-cart" id="cart"></i>
+            </ul>
+        </nav>
+        <div class="user-actions">
+            <a href="#login" class="login-btn">Login</a>
+            <a href="#cart" class="cart-btn"></a>
+            <a href="#search" class="search-btn"></a>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero">
+            <h2>Welcome To Our Gift Shop</h2>
+            <p>Discover a world of unique and thoughtful gifts at GIFTOS! Our carefully curated collection offers something for everyone, whether you're searching for a special treat for yourself or a memorable present for a loved one. From trendy accessories and cutting-edge gadgets to timeless classics, each item in our shop is selected to delight and inspire.<br/><b> Developed By Poornesh PM</b></p>
+            <button class="cta-button">CONTACT US</button>
+        </section>
+
+        <section id="shop">
+            <h2>LATEST PRODUCTS</h2>
+            <div class="product-grid">
+                <div class="product-item" data-product='{"name": "Fire Bolt Smart Watch", "price": "1000 RS", "image": "1.jpg"}'>
+                    <img src="1.jpg" alt="Product 1">
+                    <h3>Fire Bolt</h3>
+                    <h5>Rs.1000</h5>
+                    <p>Smart Watch</p>
+                    <button class="view-details-btn">View Details</button>
+                    <button class="buy-now-btn">Buy Now</button>
+                </div>
+                <div class="product-item" data-product='{"name": "Cokobara Korak Ball", "price": "200 RS", "image": "2.jpg"}'>
+                    <img src="2.jpg" alt="Product 2">
+                    <h3>Cokobara Ball</h3>
+                    <h5>Rs.200</h5>
+                    <p>Cricket Lether Ball</p>
+                    <button class="view-details-btn">View Details</button>
+                    <button class="buy-now-btn">Buy Now</button>
+                </div>
+                <div class="product-item" data-product='{"name": "JBl Headset", "price": "3000 RS", "image": "3.jpg"}'>
+                    <img src="3.jpg" alt="Product 3">
+                    <h3>JBL</h3>
+                    <h5>Rs.3000</h5>
+                    <p>Beautiful headphone</p>
+                    <button class="view-details-btn">View Details</button>
+                    <button class="buy-now-btn">Buy Now</button>
+                </div>
+                <div class="product-item" data-product='{"name": "Puma Shoe", "price": "4000 RS", "image": "4.jpg"}'>
+                    <img src="4.jpg" alt="Product 4">
+                    <h3>Puma Shoe</h3>
+                    <h5>Rs.4000</h5>
+                    <p>Running Shoes</p>
+                    <button class="view-details-btn">View Details</button>
+                    <button class="buy-now-btn">Buy Now</button>
+                </div>
+                <div class="product-item hidden" data-product='{"name": "wickets and Bails", "price": "350 RS", "image": "5.jpg"}'>
+                    <img src="5.jpg" alt="Product 5">
+                    <h3>wickets</h3>
+                    <h5>Rs.350</h5>
+                    <p>Wicket With Bails</p>
+                    <button class="view-details-btn">View Details</button>
+                    <button class="buy-now-btn">Buy Now</button>
+                </div>
+                <div class="product-item hidden" data-product='{"name": "Nokia", "price": "6000 RS", "image": "6.jpg"}'>
+                    <img src="6.jpg" alt="Product 6">
+                    <h3>Mobile</h3>
+                    <h5>Rs.6000</h5>
+                    <p>Basic Phone gadgets</p>
+                    <button class="view-details-btn">View Details</button>
+                    <button class="buy-now-btn">Buy Now</button>
+                </div>
+                <div class="product-item hidden" data-product='{"name": "Canon EosA6", "price": "57000 RS", "image": "7.jpg"}'>
+                    <img src="7.jpg" alt="Product 7">
+                    <h3>Canon EosA6</h3>
+                    <h5>Rs.57000</h5>
+                    <p>Camera</p>
+                    <button class="view-details-btn">View Details</button>
+                    <button class="buy-now-btn">Buy Now</button>
+                </div>
+                <div class="product-item hidden" data-product='{"name": "MRF Bats", "price": "8000 RS", "image": "8.jpg"}'>
+                    <img src="8.jpg" alt="Product 8">
+                    <h3>Bat</h3>
+                    <h5>Rs.8000</h5>
+                    <p>Cricket Bat</p>
+                    <button class="view-details-btn">View Details</button>
+                    <button class="buy-now-btn">Buy Now</button>
+                </div>
+                <div class="product-item" data-product='{"name": "Nivea Ball", "price": "700 RS", "image": "volley ball.jpg"}'>
+                    <img src="volley ball.jpg" alt="Product 2">
+                    <h3>Volley Ball</h3>
+                    <h5>Rs.700</h5>
+                    <p>Nivea Ball</p>
+                    <button class="view-details-btn">View Details</button>
+                    <button class="buy-now-btn">Buy Now</button>
+                </div>
+            </div>
+            <button class="view-all-btn">View All Products</button>
+        </section>
+
+        <section id="why-us">
+            <h2>WHY SHOP WITH US</h2>
+            <div class="features">
+                <div class="feature">
+                    <img src="9.jpg" alt="Fast Delivery">
+                    <h3>Fast Delivery</h3>
+                    <p>Because your time is precious—swift, reliable delivery right to your door.</p>
+                </div>
+                <div class="feature">
+                    <img src="10.png" alt="Free Shipping">
+                    <h3>Free Shipping</h3>
+                    <p>Delivering joy swiftly to your doorstep—experience our rapid shipping.</p>
+                </div>
+                <div class="feature">
+                    <img src="11.jpg" alt="Best Quality">
+                    <h3>Best Quality</h3>
+                    <p>Uncompromising quality in every product—where excellence meets your expectations.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="new-arrivals">
+            <div class="promo-content">
+                <h2>BEST SAVINGS ON NEW ARRIVALS</h2>
+                <p>Discover unbeatable savings on the freshest arrivals—where great deals meet the latest trends</p>
+                <button class="buy-now-btn"><a href="#shop">Buy Now</a></button>
+            </div>
+            <div class="promo-image">
+                <img src="12.jpg" alt="New Arrivals" height="200" width="200">
+            </div>
+        </section>
+
+        <section id="contact-us">
+            <h2>CONTACT US</h2>
+            <div class="contact-container">
+                <div class="map">
+                    <img src="13.jpg" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <form class="contact-form">
+                    <input type="text" placeholder="Name" required>
+                    <input type="email" placeholder="Email" required>
+                    <input type="tel" placeholder="Phone" required>
+                    <textarea placeholder="Message" required></textarea>
+                    <button type="submit" class="send-btn">SEND</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="social-links">
+            <a href="#" class="facebook">Facebook</a>
+            <a href="#" class="twitter">Twitter</a>
+            <a href="#" class="instagram">Instagram</a>
+            <a href="#" class="youtube">YouTube</a>
+        </div>
+    </footer>
+
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div class="modal-product-details"></div>
+        </div>
+    </div>
+
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Login</h2>
+            <form class="login-form">
+                <input type="text" placeholder="Username" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="cart-modal" class="modal">
+        <div class="modal-content cart-modal-content">
+            <span class="close-btn close-cart-btn">&times;</span>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
